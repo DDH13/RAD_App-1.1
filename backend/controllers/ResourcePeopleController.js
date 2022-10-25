@@ -2,7 +2,7 @@ const ResourcePeopleModel = require('../models/ResourcePeopleModel')
 
 module.exports.getResourcePeople = async (req,res)=>{
     const ResourcePeople = await ResourcePeopleModel.find()
-    res.send(ResourcePeople)
+    res.status(200).json(ResourcePeople);
 }
 
 module.exports.saveResourcePeople = async (req,res)=>{
