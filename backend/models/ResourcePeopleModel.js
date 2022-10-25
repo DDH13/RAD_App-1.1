@@ -23,4 +23,4 @@ const ResourcePeopleSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('task',ResourcePeopleSchema)
+module.exports = mongoose.model('resourcePerson',ResourcePeopleSchema)
