@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
-
+const subpSchema = new mongoose.Schema({
+    name:String,
+    email:String
+})
 const participantSchema = new mongoose.Schema({
     eventName:{
         type:String,
@@ -8,9 +11,6 @@ const participantSchema = new mongoose.Schema({
 
     participant: [subpSchema]
 })
-const subpSchema = Schema({
-    name:String,
-    email:String
-})
+
 
 module.exports = mongoose.model('participant',participantSchema)
