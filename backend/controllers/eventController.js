@@ -2,7 +2,7 @@ const EventModel = require('../models/eventModel')
 
 module.exports.getEvent = async (req,res)=>{
     const Event = await EventModel.find()
-    res.send(Event)
+    res.status(200).json(Event)
 }
 
 module.exports.saveEvent = async (req,res)=>{
