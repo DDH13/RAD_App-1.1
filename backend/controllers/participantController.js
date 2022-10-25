@@ -2,7 +2,7 @@ const ParticipantModel = require('../models/participantModel')
 
 module.exports.getParticipant = async (req,res)=>{
     const participant = await ParticipantModel.find()
-    res.send(participant)
+    res.status(200).json(participant);
 }
 
 module.exports.saveParticipant = async (req,res)=>{
