@@ -6,16 +6,11 @@ const participantSchema = new mongoose.Schema({
         require:true
     },
 
-    participant: new mongoose.Schema({
-        name:{
-          type:String,
-          require:true},
-        email:{
-          type:String,
-          require:false}
-
-
-    })
+    participant: [subpSchema]
+})
+const subpSchema = Schema({
+    name:String,
+    email:String
 })
 
-module.exports = mongoose.model('task',participantSchema)
+module.exports = mongoose.model('participant',participantSchema)
