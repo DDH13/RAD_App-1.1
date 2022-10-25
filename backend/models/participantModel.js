@@ -8,10 +8,10 @@ const participantSchema = new mongoose.Schema({
 
     participant: new mongoose.Schema({
         name:{
-          type:String
+          type:String,
           require:true},
         email:{
-          type:String
+          type:String,
           require:false}
 
 
