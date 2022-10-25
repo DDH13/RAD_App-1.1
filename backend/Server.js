@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require("cors")
 const todoroutes = require('./routes/todoRoute')
-const bdayroutes = require('./routes/bdayRoute')
+const eventroutes = require('./routes/eventRoute')
 
 require('dotenv').config()
 
@@ -17,6 +17,6 @@ mongoose
 .catch((error)=>console.log(error))
 
 app.use('/todo',todoroutes)
-app.use('/bday',bdayroutes)
+app.use('/event',evenroutes)
 
 app.listen(PORT,()=>console.log(`Listening on ${PORT}`))
