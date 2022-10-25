@@ -3,15 +3,15 @@ const mongoose = require('mongoose')
 const ResourcePeopleSchema = new mongoose.Schema({
     profession:{
         type:String,
-        require:false
+        require:true
     },
     contactNo:{
-        type:Number,
+        type:String,
         require: true
     },
     company:{
         type:String,
-        require: true
+        require: false
     },
     name:{
         type:String,
