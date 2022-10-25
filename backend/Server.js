@@ -17,6 +17,7 @@ mongoose
 .catch((error)=>console.log(error))
 
 app.use('/todo',todoroutes)
-app.use('/event',evenroutes)
+app.use('/event',eventroutes)
+
 
 app.listen(PORT,()=>console.log(`Listening on ${PORT}`))
