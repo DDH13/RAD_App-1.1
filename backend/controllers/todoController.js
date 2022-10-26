@@ -2,7 +2,9 @@ const ToDoModel = require('../models/todoModel')
 
 module.exports.getToDo = async (req,res)=>{
     const toDo = await ToDoModel.find()
+    // res.send(toDo)
     res.status(200).json(toDo);
+    
 }
 
 module.exports.saveToDo = async (req,res)=>{
@@ -15,15 +17,16 @@ module.exports.saveToDo = async (req,res)=>{
     .then((data)=>{
         console.log("Added successfully");
         console.log(data);
-        res.send(data)
+        res.status(200).json(data)
     })
+    .catch((error)=>console.log(error))
 }
 
 module.exports.updateToDo = async (req,res)=>{
     const {_id,title,description} = req.body
     ToDoModel
     .findByIdAndUpdate(_id,{title:title,description:description})
-    .then(()=>res.send("Updated Successfully"))
+    .then(()=>res.status(200).json(data))
     .catch((error)=>console.log(error))
 
 }
@@ -33,6 +36,6 @@ module.exports.deleteToDo = async (req,res)=>{
     ToDoModel
     .findByIdAndDelete(_id)
     .then(()=>res.send("Deleted Successfully"))
-    .catch((error)=>console.log(error))
-
+    .catch((error)=>res.status(404).json(error))
+    
 }
