@@ -1,12 +1,12 @@
 import React from 'react'
 import { useEffect, useState } from "react";
-import TaskForm from './TaskForm';
+import ResForm from './ResForm';
 
 function Del(e){
     let a = e.key2;
     const handleClick = (e)=>{
         e.preventDefault();
-        fetch('http://localhost:5000/todo/delete', {
+        fetch('http://localhost:5000/resourcepeople/delete', {
             method: 'POST',
             body: JSON.stringify({_id:a}),
             headers: {
@@ -22,32 +22,23 @@ function Del(e){
 function Update(e){
     let a = e.key3;
     const handleClick = (e)=>{
-        // e.preventDefault();
-        // fetch('http://localhost:5000/todo/update', {
-        //     method: 'POST',
-        //     body: JSON.stringify({_id:a}),
-        //     headers: {
-        //       'Content-Type': 'application/json'
-        //     },
-        // })
-        return (
-            <>
-                <TaskForm fid={a}/>
-            </>
-        )
+
     }
     return(
         <button className='updatebutton' onClick={handleClick}>Update</button>
     )
 }
-function Task(props) {
-    const x = props.task
+function Resperson(props) {
+    const x = props.resp
 
     return (
         <>
         <h3>
-            <div>{x.title}</div>
-            <div>{x.description}</div>
+            <div>{x.name}</div>
+            <div>{x.company}</div>
+            <div>{x.email}</div>
+            <div>{x.contactNo}</div>
+            <div>{x.profession}</div>
 
             <Del key2 ={x._id} />
             <Update key3 ={x._id} />
@@ -59,12 +50,12 @@ function Task(props) {
 }
 
 
-export default function TaskList({todo}) {
+export default function ResList() {
     const [data, setData] = useState([]);
 
     const getdata = () => {
         const baseURL = `http://localhost:5000/`
-        fetch(`${baseURL}todo`)
+        fetch(`${baseURL}resourcepeople`)
             .then((response) => {
                 console.log(response)
                 return response.json()
@@ -79,7 +70,7 @@ export default function TaskList({todo}) {
 
     return (
         data.map(
-            (d) => (<Task task={d} key = {d._id}/>) 
+            (d) => (<Resperson resp={d} key = {d._id}/>) 
         )
 
     )

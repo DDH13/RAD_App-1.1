@@ -1,34 +1,10 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 
-  function TaskForm(props) {
+  function EventsForm(props) {
     
     const [inputs, setInputs] = useState({});
 
-    //When called to update items
-
-    const fid = props.fid
-    const checkobj = (ob)=>{
-        return ob._id==fid
-    }
-    if (fid!=-1)
-    {
-        const baseURL = `http://localhost:5000/`
-        fetch(`${baseURL}todo`)
-            .then((response) => {
-                return response.json()
-            })
-            .then(jsondata => {
-                const obj =  jsondata.find(checkobj)
-                console.log(`${obj} to be updated`)
-                
-            })
-            
-    }
-
-
-    
-  
     const handleChange = (event) => {
       const name = event.target.name;
       const value = event.target.value;
@@ -39,7 +15,7 @@ import ReactDOM from 'react-dom/client';
       event.preventDefault();
     //   alert(inputs);
       console.log(inputs)
-      fetch('http://localhost:5000/todo/save', {
+      fetch('http://localhost:5000/event/save', {
         method: 'POST',
         body: JSON.stringify(inputs),
         headers: {
@@ -52,26 +28,37 @@ import ReactDOM from 'react-dom/client';
   
     return (
       <form onSubmit={handleSubmit}>
-        
+  
         <input 
           type="text" 
-          name="title" 
-          placeholder='Title'
-          value={inputs.title || ""} 
+          name="name" 
+          placeholder='Event Name'
+          value={inputs.name || ""} 
           onChange={handleChange}
         />
-        
-        
+
+
+
           <input 
-            type="text" 
-            name="description" 
-            placeholder='Description'
-            value={inputs.description || ""} 
+            type="date" 
+            name="date" 
+            placeholder='Date'
+            value={inputs.date || ""} 
             onChange={handleChange}
           />
-          
+
+
+
+          <input 
+            type="text" 
+            name="club" 
+            placeholder='Club'
+            value={inputs.club || ""} 
+            onChange={handleChange}
+          />
+
           <input type="submit" />
       </form>
     )
   }
-export default TaskForm;
+export default EventsForm;
