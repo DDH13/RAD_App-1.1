@@ -5,7 +5,6 @@ import ResList from '../components/ResList'
 export default function ResourcePeople() {
   return (
     <>
-      <div>ResourcePeople</div>
       <ResList />
       <ResForm />
     </>

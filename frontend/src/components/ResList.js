@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react";
+import refreshPage from './refresh';
 import ResForm from './ResForm';
 
 function Del(e){
@@ -13,6 +14,7 @@ function Del(e){
               'Content-Type': 'application/json'
             },
         })
+        refreshPage();
     }
     return(
         <button className='delbutton' onClick={handleClick}>Delete</button>
@@ -23,6 +25,7 @@ function Update(e){
     let a = e.key3;
     const handleClick = (e)=>{
 
+        refreshPage();
     }
     return(
         <button className='updatebutton' onClick={handleClick}>Update</button>
@@ -33,20 +36,22 @@ function Resperson(props) {
 
     return (
         <>
-        <h3>
-            <div>{x.name}</div>
-            <div>{x.company}</div>
-            <div>{x.email}</div>
-            <div>{x.contactNo}</div>
-            <div>{x.profession}</div>
-
+        <table>
+            <tr>
+                <td>{x.name}</td>
+                <td>{x.company}</td>
+                <td>{x.email}</td>
+                <td>{x.contactNo}</td>
+                <td>{x.profession}</td>
+            </tr>
             <Del key2 ={x._id} />
             <Update key3 ={x._id} />
             <br></br>
             <br></br>
-        </h3>
+        </table>
         </>
     )
+
 }
 
 

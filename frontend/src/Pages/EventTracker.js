@@ -5,7 +5,6 @@ import EventsForm from '../components/EventsForm'
 export default function EventTracker() {
   return (
     <>
-    <div>EventTracker</div>
     <EventList/>
     <EventsForm/>
     </>

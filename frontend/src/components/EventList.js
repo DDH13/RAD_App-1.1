@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import EventsForm from './EventsForm';
+import refreshPage from './refresh';
 
 function Del(e){
     let a = e.key2;
@@ -13,6 +14,8 @@ function Del(e){
               'Content-Type': 'application/json'
             },
         })
+        refreshPage();
+        
     }
     return(
         <button className='delbutton' onClick={handleClick}>Delete</button>
@@ -22,6 +25,8 @@ function Del(e){
 function Update(e){
     let a = e.key3;
     const handleClick = (e)=>{
+        
+        refreshPage();
 
     }
     return(
@@ -33,11 +38,12 @@ function Event(props) {
 
     return (
         <>
-        <h3>
+        <h3><br>
+        </br>
             <div>{x.date}</div>
             <div>{x.name}</div>
             <div>{x.club}</div>
-
+<br></br>
             <Del key2 ={x._id} />
             <Update key3 ={x._id} />
             <br></br>

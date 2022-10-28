@@ -1,10 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from "react";
+import Form from './popup';
+import refreshPage from './refresh';
 import TaskForm from './TaskForm';
 
 function Del(e){
     let a = e.key2;
     const handleClick = (e)=>{
+
         e.preventDefault();
         fetch('http://localhost:5000/todo/delete', {
             method: 'POST',
@@ -13,6 +16,7 @@ function Del(e){
               'Content-Type': 'application/json'
             },
         })
+        refreshPage();
     }
     return(
         <button className='delbutton' onClick={handleClick}>Delete</button>
@@ -22,6 +26,7 @@ function Del(e){
 function Update(e){
     let a = e.key3;
     const handleClick = (e)=>{
+        
         // e.preventDefault();
         // fetch('http://localhost:5000/todo/update', {
         //     method: 'POST',
@@ -30,11 +35,12 @@ function Update(e){
         //       'Content-Type': 'application/json'
         //     },
         // })
-        return (
-            <>
-                <TaskForm fid={a}/>
-            </>
-        )
+        // return (
+        //     <>
+        //         <TaskForm fid={a}/>
+        //     </>
+        // )
+  
     }
     return(
         <button className='updatebutton' onClick={handleClick}>Update</button>
@@ -45,15 +51,10 @@ function Task(props) {
 
     return (
         <>
-        <h3>
-            <div>{x.title}</div>
-            <div>{x.description}</div>
 
-            <Del key2 ={x._id} />
-            <Update key3 ={x._id} />
-            <br></br>
-            <br></br>
-        </h3>
+        <h3>{x.title}: {x.description}</h3> 
+
+            <Del key2 ={x._id} />   <Update key3 ={x._id} />
         </>
     )
 }

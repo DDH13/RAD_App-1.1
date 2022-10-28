@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import refreshPage from './refresh';
 
   function EventsForm(props) {
     
@@ -22,6 +23,7 @@ import ReactDOM from 'react-dom/client';
           'Content-Type': 'application/json'
         },
     })
+    refreshPage();
   
 
     }

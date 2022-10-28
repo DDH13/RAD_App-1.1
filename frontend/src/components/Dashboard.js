@@ -1,18 +1,48 @@
 function dashboard() {
-  const baseURL = `http://localhost:3000/`
+  const baseURL = `http://localhost:3000/`;
   return (
-      <>
+    <>
       <div id="dashboard">
-
-        <a href={baseURL+"todo"}><div id="tdl"><h1>To-Do List</h1></div></a>
-        <a href={baseURL+"participant"}><div id="pp"><h1>Participant Planner</h1></div></a>
-        <a href={baseURL+"event"}><div id="el"><h1>Event List</h1></div></a>
-        <a href={baseURL+"resourcepeople"}><div id="rp"><h1>Resource-People</h1></div></a>
-
-      </div >
-
-      </>
-    );
+        <section>
+          <h1>Dashboard</h1>
+        </section>
+        <div class="boxes">
+          <div class="box1">
+            <div class="box">
+              <a href={baseURL + "todo"}>
+                <div id="tdl">
+                  <h2>To-Do List</h2>
+                </div>
+              </a>
+            </div>
+            <div class="box">
+              <a href={baseURL + "participant"}>
+                <div id="pp">
+                  <h2>Participant Planner</h2>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="container">
+            <div class="box">
+              <a href={baseURL + "event"}>
+                <div id="el">
+                  <h2>Event List</h2>
+                </div>
+              </a>
+            </div>
+            <div class="box">
+              <a href={baseURL + "resourcepeople"}>
+                <div id="rp">
+                  <h2>Resource-People</h2>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default dashboard;

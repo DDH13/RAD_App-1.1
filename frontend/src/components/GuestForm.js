@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import refreshPage from './refresh';
 
 function ResForm(props) {
 
@@ -25,9 +24,6 @@ function ResForm(props) {
         'Content-Type': 'application/json'
       },
     })
-    refreshPage();
-
-
   }
 
   return (

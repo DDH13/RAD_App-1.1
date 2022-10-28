@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import refreshPage from './refresh';
 
   function TaskForm(props) {
     
@@ -26,9 +27,6 @@ import ReactDOM from 'react-dom/client';
             
     }
 
-
-    
-  
     const handleChange = (event) => {
       const name = event.target.name;
       const value = event.target.value;
@@ -46,8 +44,8 @@ import ReactDOM from 'react-dom/client';
           'Content-Type': 'application/json'
         },
     })
+    refreshPage();
   
-
     }
   
     return (
@@ -60,7 +58,6 @@ import ReactDOM from 'react-dom/client';
           value={inputs.title || ""} 
           onChange={handleChange}
         />
-        
         
           <input 
             type="text" 
@@ -75,3 +72,6 @@ import ReactDOM from 'react-dom/client';
     )
   }
 export default TaskForm;
+
+
+
