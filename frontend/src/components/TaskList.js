@@ -1,8 +1,9 @@
 import React from 'react'
 import { useEffect, useState } from "react";
-import Form from './popup';
 import refreshPage from './refresh';
 import TaskForm from './TaskForm';
+import { useNavigate } from 'react-router-dom';
+
 
 function Del(e){
     let a = e.key2;
@@ -25,22 +26,11 @@ function Del(e){
 
 function Update(e){
     let a = e.key3;
+    const setID = e.s
+
     const handleClick = (e)=>{
-        
-        // e.preventDefault();
-        // fetch('http://localhost:5000/todo/update', {
-        //     method: 'POST',
-        //     body: JSON.stringify({_id:a}),
-        //     headers: {
-        //       'Content-Type': 'application/json'
-        //     },
-        // })
-        // return (
-        //     <>
-        //         <TaskForm fid={a}/>
-        //     </>
-        // )
-  
+
+        setID(a)
     }
     return(
         <button className='updatebutton' onClick={handleClick}>Update</button>
@@ -48,19 +38,21 @@ function Update(e){
 }
 function Task(props) {
     const x = props.task
+    const setID = props.s
 
     return (
         <>
 
         <h3>{x.title}: {x.description}</h3> 
 
-            <Del key2 ={x._id} />   <Update key3 ={x._id} />
+            <Del key2 ={x._id} />   <Update key3 ={x._id} s={setID}/>
         </>
     )
 }
 
 
-export default function TaskList({todo}) {
+export default function TaskList(props) {
+    const setID = props.s
     const [data, setData] = useState([]);
 
     const getdata = () => {
@@ -80,7 +72,7 @@ export default function TaskList({todo}) {
 
     return (
         data.map(
-            (d) => (<Task task={d} key = {d._id}/>) 
+            (d) => (<Task task={d} key = {d._id} s={setID}/>) 
         )
 
     )

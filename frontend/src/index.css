@@ -214,3 +214,14 @@ td {
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+
+.ev{
+	background-color:black;
+	padding-left:20px;
+  padding: 10px;
+    color:white;
+    margin-bottom:0;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 15px;
+    width: 50%;
+}

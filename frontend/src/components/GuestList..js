@@ -36,7 +36,7 @@ function Guest(props) {
     return (
         <>
             <h6>
-                <span className='guest'>{x.name}:  {x.email}</span>
+                <span className='guest-ev' >{x.name}:  {x.email}</span>
             </h6>
 
         </>

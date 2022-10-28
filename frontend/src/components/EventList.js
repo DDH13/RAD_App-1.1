@@ -24,10 +24,11 @@ function Del(e){
 
 function Update(e){
     let a = e.key3;
+    const setID = e.s
     const handleClick = (e)=>{
         
-        refreshPage();
-
+     
+        setID(a)
     }
     return(
         <button className='updatebutton' onClick={handleClick}>Update</button>
@@ -35,17 +36,18 @@ function Update(e){
 }
 function Event(props) {
     const x = props.event
+    const setID = props.s
 
     return (
         <>
         <h3><br>
         </br>
-            <div>{x.date}</div>
-            <div>{x.name}</div>
-            <div>{x.club}</div>
+            <div className='ev'>{x.date}</div>
+            <div className='ev'>{x.name}</div>
+            <div className='ev'>{x.club}</div>
 <br></br>
             <Del key2 ={x._id} />
-            <Update key3 ={x._id} />
+            <Update key3 ={x._id} s={setID}/>
             <br></br>
             <br></br>
         </h3>
@@ -54,7 +56,8 @@ function Event(props) {
 }
 
 
-export default function EventList() {
+export default function EventList(props) {
+    const setID = props.s
     const [data, setData] = useState([]);
 
     const getdata = () => {
@@ -73,9 +76,9 @@ export default function EventList() {
     }, [])
 
     return (
-        data.map(
-            (d) => (<Event event={d} key = {d._id}/>) 
-        )
+
+        data.map((d)=> (<Event event={d} key = {d._id}  s={setID}/>)  )
+
 
     )
 }

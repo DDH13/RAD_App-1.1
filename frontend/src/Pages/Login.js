@@ -2,6 +2,10 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const delay = ms => new Promise(
+  resolve => setTimeout(resolve, ms)
+);
+
 export default function Login() {
   return (
     <>
@@ -35,7 +39,7 @@ function LoginForm(props) {
     //     'Content-Type': 'application/json'
     //   },
     // })
-    
+    delay(3000);
     navigate('/');
 
 
