@@ -3,7 +3,9 @@ const mongoose = require('mongoose')
 const cors = require("cors")
 const todoroutes = require('./routes/todoRoute')
 const eventroutes = require('./routes/eventRoute')
+const participantroutes = require('./routes/participantRoute')
 const resourcepeopleroutes = require('./routes/ResourcePeopleRoute')
+const userroutes = require('./routes/userRoute')
 
 require('dotenv').config()
 
@@ -19,7 +21,8 @@ mongoose
 
 app.use('/todo',todoroutes)
 app.use('/event',eventroutes)
+app.use('/participant',participantroutes)
 app.use('/resourcepeople',resourcepeopleroutes)
-
+app.use('/user',userroutes)
 
 app.listen(PORT,()=>console.log(`Listening on ${PORT}`))

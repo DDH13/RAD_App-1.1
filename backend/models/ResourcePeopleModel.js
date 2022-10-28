@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const ResourcePeopleSchema = new mongoose.Schema({
     profession:{
         type:String,
-        require:true
+        require:false
     },
     contactNo:{
         type:String,
@@ -11,7 +11,7 @@ const ResourcePeopleSchema = new mongoose.Schema({
     },
     company:{
         type:String,
-        require: false
+        require: true
     },
     name:{
         type:String,

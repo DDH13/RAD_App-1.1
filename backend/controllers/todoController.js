@@ -26,7 +26,7 @@ module.exports.updateToDo = async (req,res)=>{
     const {_id,title,description} = req.body
     ToDoModel
     .findByIdAndUpdate(_id,{title:title,description:description})
-    .then(()=>res.status(200).json(data))
+    .then((data)=>res.status(200).json(data))
     .catch((error)=>console.log(error))
 
 }

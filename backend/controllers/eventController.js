@@ -16,7 +16,7 @@ module.exports.saveEvent = async (req,res)=>{
     .then((data)=>{
         console.log("Added successfully");
         console.log(data);
-        res.status(200).json(data)
+        res.send(data)
     })
 }
 
@@ -24,7 +24,7 @@ module.exports.updateEvent = async (req,res)=>{
     const {_id,date, club} = req.body
     EventModel
     .findByIdAndUpdate(_id,{date:date,club:club})
-    .then((data)=>res.status(200).json(data))
+    .then(()=>res.send("Updated Successfully"))
     .catch((error)=>console.log(error))
 
 }
